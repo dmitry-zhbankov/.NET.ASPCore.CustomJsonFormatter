@@ -1,4 +1,4 @@
-﻿namespace CustomJsonFormatter.Controllers
+﻿namespace CustomJsonFormatter.Models
 {
     public class Author
     {

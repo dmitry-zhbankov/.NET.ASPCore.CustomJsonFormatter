@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CustomJsonFormatter.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomJsonFormatter.Controllers
 {
+    [ApiController]
     public class ArticleController : Controller
     {
         IUnitOfWork unitOfWork;
@@ -13,6 +15,7 @@ namespace CustomJsonFormatter.Controllers
         {
             this.unitOfWork = unitOfWork;
         }
+
         [HttpGet]
         [Route("api/{controller}/{id}")]
         public Article Get(int id)

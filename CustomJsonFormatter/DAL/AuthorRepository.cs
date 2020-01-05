@@ -1,18 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using CustomJsonFormatter.Models;
 
 namespace CustomJsonFormatter.Controllers
 {
     public class AuthorRepository : IAuthorRepository
     {
         MyContext context;
-        DbSet<Author> authors;
+        IEnumerable<Author> authors;
         public AuthorRepository(MyContext context)
         {
             this.context = context;
-            authors = context.Set<Author>();
+            authors = context.Authors;
         }
 
         public void Create(Author entity)
@@ -32,7 +34,7 @@ namespace CustomJsonFormatter.Controllers
 
         public Author GetById(int id)
         {
-            return authors.Find(id);
+            return authors.FirstOrDefault(x => x.AuthorId == id);
         }
 
         public int Save()

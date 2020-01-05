@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using CustomJsonFormatter.Models;
 
 namespace CustomJsonFormatter.Controllers
 {
     public class ArticleRepository : IArticleRepository
     {
         MyContext context;
-        DbSet<Article> articles;
+        IEnumerable<Article> articles;
         public ArticleRepository(MyContext context)
         {
             this.context = context;
-            articles = context.Set<Article>();
+            articles = context.Articles;
         }
 
         public void Create(Article entity)
@@ -34,7 +35,7 @@ namespace CustomJsonFormatter.Controllers
 
         public Article GetById(int id)
         {            
-            return articles.Find(id);            
+            return articles.FirstOrDefault(x=>x.ArticleId==id);            
         }
 
         public int Save()

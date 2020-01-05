@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CustomJsonFormatter.Controllers;
+using CustomJsonFormatter.Formatters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,8 +27,8 @@ namespace CustomJsonFormatter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            services.AddDbContext<MyContext>(ServiceLifetime.Singleton);
+            services.AddControllersWithViews(options=>options.OutputFormatters.Insert(0,new CustomFormatter()));
+            services.AddSingleton<MyContext>();
             services.AddSingleton<IArticleRepository, ArticleRepository>();
             services.AddSingleton<IAuthorRepository, AuthorRepository>();
             services.AddSingleton<IUnitOfWork, UnitOfWork>();
