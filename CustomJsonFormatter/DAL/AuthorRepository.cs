@@ -3,18 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using CustomJsonFormatter.DAL;
 using CustomJsonFormatter.Models;
 
 namespace CustomJsonFormatter.Controllers
 {
     public class AuthorRepository : IAuthorRepository
     {
-        MyContext context;
-        IEnumerable<Author> authors;
+        private MyContext _context;
+        private IEnumerable<Author> _authors;
         public AuthorRepository(MyContext context)
         {
-            this.context = context;
-            authors = context.Authors;
+            this._context = context;
+            _authors = context.Authors;
         }
 
         public void Create(Author entity)
@@ -34,7 +35,7 @@ namespace CustomJsonFormatter.Controllers
 
         public Author GetById(int id)
         {
-            return authors.FirstOrDefault(x => x.AuthorId == id);
+            return _authors.FirstOrDefault(x => x.AuthorId == id);
         }
 
         public int Save()

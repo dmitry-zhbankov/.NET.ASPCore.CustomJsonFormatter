@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CustomJsonFormatter.Models;
 
-namespace CustomJsonFormatter.Controllers
+namespace CustomJsonFormatter.DAL
 {
     public class MyContext
     {

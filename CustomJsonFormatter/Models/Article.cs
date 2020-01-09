@@ -1,6 +1,4 @@
-﻿using System.Collections;
-
-namespace CustomJsonFormatter.Models
+﻿namespace CustomJsonFormatter.Models
 {
     public class Article
     {

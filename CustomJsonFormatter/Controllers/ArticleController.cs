@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CustomJsonFormatter.DAL;
 using CustomJsonFormatter.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,17 +11,17 @@ namespace CustomJsonFormatter.Controllers
     [ApiController]
     public class ArticleController : Controller
     {
-        IUnitOfWork unitOfWork;
+        private IUnitOfWork _unitOfWork;
         public ArticleController(IUnitOfWork unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         [Route("api/{controller}/{id}")]
         public Article Get(int id)
         {
-            var article = unitOfWork.ArticleRepository.GetById(id);
+            var article = _unitOfWork.ArticleRepository.GetById(id);
             return article;
         }
     }

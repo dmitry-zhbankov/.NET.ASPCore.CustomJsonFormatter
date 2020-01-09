@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Routing;
+﻿using System;
+using System.Security.Policy;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CustomJsonFormatter.Models
 {
     public class ArticleLinkModel
     {
         public string Self { get; set; }
-        public string Author { get; set; }
 
-        public ArticleLinkModel(Article article)
-        {
-            Self = @$"http://localhost:50298/api/article/{article.ArticleId}";
-            Author = @$"http://localhost:50298/api/profile/{article.Author.AuthorId}";
-        }
+        public string Author { get; set; }
     }
 }

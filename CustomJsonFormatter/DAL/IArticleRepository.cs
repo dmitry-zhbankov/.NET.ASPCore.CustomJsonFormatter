@@ -1,6 +1,7 @@
-﻿using CustomJsonFormatter.Models;
+﻿using CustomJsonFormatter.Controllers;
+using CustomJsonFormatter.Models;
 
-namespace CustomJsonFormatter.Controllers
+namespace CustomJsonFormatter.DAL
 {
     public interface IArticleRepository : IRepository<Article>
     {

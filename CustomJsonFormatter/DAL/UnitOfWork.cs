@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-
-namespace CustomJsonFormatter.Controllers
+﻿namespace CustomJsonFormatter.DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -14,6 +11,5 @@ namespace CustomJsonFormatter.Controllers
         public IArticleRepository ArticleRepository { get; }
 
         public IAuthorRepository AuthorRepository { get; }
-        
     }
 }
