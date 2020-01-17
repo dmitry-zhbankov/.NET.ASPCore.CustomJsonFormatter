@@ -10,12 +10,11 @@ using CustomJsonFormatter.Models;
 namespace CustomJsonFormatter.Controllers
 {
     public class ArticleRepository : IArticleRepository
-    {
-        private MyContext _context;
+    {        
         private IEnumerable<Article> _articles;
+
         public ArticleRepository(MyContext context)
         {
-            _context = context;
             _articles = context.Articles;
         }
 

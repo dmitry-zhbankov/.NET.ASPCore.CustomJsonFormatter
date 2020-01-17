@@ -9,12 +9,11 @@ using CustomJsonFormatter.Models;
 namespace CustomJsonFormatter.Controllers
 {
     public class AuthorRepository : IAuthorRepository
-    {
-        private MyContext _context;
+    {        
         private IEnumerable<Author> _authors;
+
         public AuthorRepository(MyContext context)
         {
-            this._context = context;
             _authors = context.Authors;
         }
 
